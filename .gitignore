@@ -1,0 +1,11 @@
+# Ignore build directories
+cmake-build-debug/
+cmake-build-release/
+
+# Ignore IDE settings and configuration
+.idea/
+*.iml
+
+# Ignore compiled files
+*.o
+*.exe
