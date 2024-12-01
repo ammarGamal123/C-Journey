@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include <stdbool.h>
 
 void howToDisplayDataTypes() {
@@ -37,7 +38,6 @@ void howToDisplayDataTypes() {
     printf("%lld\n",a1);
 
     printf("%lld bytes\n" , sizeof(long long int));
-
 }
 
 void howToFormatSpecifier() {
@@ -61,11 +61,48 @@ void howToFormatSpecifier() {
 }
 
 
+void howToConst() {
+    // constant = fixed value that cannot be altererd by the program during its execution
+    const float PI = 3.141592653589793;
+    printf("%d\n", PI);
+}
+
+void howToGetUserInput() {
+
+
+    int age;
+    char name[100];
+
+    // Reading name
+    printf("What's your name:");
+    fgets(name,100,stdin);
+    name[strcspn(name, "\n")] = 0;
+
+    // Reading age
+    printf("How old are you:");
+    scanf("%d", &age);
+    getchar(); // To consume the newline character after the age input
+
+     // Remove the trailing newline character
+
+    // Outputting the results
+    printf("You are %d years old\n", age);
+    printf("Your name is %s\n", name);
+
+
+    // scanf can't deal with spaces otherwise use fgets
+}
+
 int main(void) {
 
     //howToDisplayDataTypes();
 
-    howToFormatSpecifier();
+    //howToFormatSpecifier();
+
+    // howToConst();
+
+    howToGetUserInput();
+
 
     return 0;
 }
