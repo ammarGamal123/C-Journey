@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
+#include <ctype.h>
+
+
+void howToCtypehLibrary();
 
 void howToDisplayDataTypes() {
      int x , y , z; // unintialized yet
@@ -101,8 +105,37 @@ int main(void) {
 
     // howToConst();
 
-    howToGetUserInput();
+    //howToGetUserInput();
 
+    howToCtypehLibrary();
 
     return 0;
+}
+
+void howToCtypehLibrary() {
+    char unit;
+    float temp;
+
+    printf("\nIs the temperature in (F) or (C): ");
+    scanf(" %c", &unit); // Added a space before %c to handle newline/whitespace from previous input
+
+    unit = toupper(unit); // Convert to uppercase to handle lowercase input
+
+    if (unit == 'C') {
+        printf("\nThe temperature is currently in Celsius.");
+        printf("\nEnter the temperature in Celsius: ");
+        scanf("%f", &temp); // Prompt user before reading input
+        temp = (temp * 9 / 5) + 32; // Convert Celsius to Fahrenheit
+        printf("\nThe temperature in Fahrenheit is: %.2f°F\n", temp);
+    }
+    else if (unit == 'F') {
+        printf("\nThe temperature is currently in Fahrenheit.");
+        printf("\nEnter the temperature in Fahrenheit: ");
+        scanf("%f", &temp); // Prompt user before reading input
+        temp = ((temp - 32) * 5) / 9; // Convert Fahrenheit to Celsius
+        printf("\nThe temperature in Celsius is: %.2f C\n", temp);
+    }
+    else {
+        printf("\n'%c' is not a valid unit.\n", unit); // Handle invalid input
+    }
 }
